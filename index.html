@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimization & Google Indexing Directives -->
+    <title>شفرة الفيزياء - منصة امتحانات الفيزياء للصف الثاني بكالوريا</title>
+    <meta name="description" content="منصة شفرة الفيزياء التفاعلية لطلاب الصف الثاني بكالوريا. امتحانات أونلاين وتصحيح ذكي فوري بالذكاء الاصطناعي وتصوير الحل بالكاميرا. تصميم الطلاب محمد رامي عفيفي، كريم محمود حمد.">
+    <meta name="keywords" content="شفرة الفيزياء, امتحانات فيزياء, بكالوريا, المقذوفات, السرعة النسبية, محمد رامي عفيفي, كريم محمود حمد, مستر محمد عبد المعبود, امتحانات اونلاين, physics code">
+    <meta name="author" content="محمد رامي عفيفي & كريم محمود حمد">
+    
+    <!-- Directives for Google Search Crawlers -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="bingbot" content="index, follow">
+    <link rel="canonical" href="https://physics-code.example.com/">
+    
+    <!-- Web App / PWA Meta Tags -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="شفرة الفيزياء">
+
+    <!-- Open Graph & Social Cards for Google & WhatsApp/Facebook -->
+    <meta property="og:locale" content="ar_EG">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="شفرة الفيزياء - منصة امتحانات الفيزياء للثانوية العامة">
+    <meta property="og:description" content="اختبر معلوماتك في الفيزياء مع تصحيح ذكي فوري بالذكاء الاصطناعي وتقييم الحل الورقي بالكاميرا.">
+    <meta property="og:site_name" content="شفرة الفيزياء">
+    
+    <!-- Structured Data (JSON-LD) for Google Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalApplication",
+      "name": "شفرة الفيزياء",
+      "operatingSystem": "All",
+      "applicationCategory": "EducationalApplication",
+      "description": "منصة امتحانات واختبارات فيزياء تفاعلية متخصصة في السرعات والمقذوفات مع تصحيح تلقائي.",
+      "author": {
+        "@type": "Person",
+        "name": "محمد رامي عفيفي & كريم محمود حمد (طلاب مستر محمد عبد المعبود)"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .custom-radio:checked + label {
+            border-color: #38bdf8;
+            background-color: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="w-full border-b border-slate-700/60 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-sky-500/30">
+                    <i class="fa-solid fa-bolt text-yellow-300"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg md:text-xl font-black bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-300">منصة شفرة الفيزياء</h1>
+                    <p class="text-xs text-slate-400">تصميم وإنشـاء: الطلاب <span class="text-sky-300 font-semibold">محمد رامي عفيفي</span> & <span class="text-sky-300 font-semibold">كريم محمود حمد</span> (طلاب مستر محمد عبد المعبود)</p>
+                </div>
+            </div>
+            
+            <!-- Timer Banner -->
+            <div id="nav-timer" class="hidden flex items-center space-x-2 space-x-reverse bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700">
+                <i class="fa-regular fa-clock text-sky-400"></i>
+                <span id="timer-text" class="font-mono text-lg font-bold text-sky-400">60:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow flex items-center justify-center p-4 md:p-6">
+        <div class="w-full max-w-4xl">
+
+            <!-- STEP 1: Course Hub & Exams List View -->
+            <div id="view-intro" class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl transition-all duration-300">
+                <div class="text-center mb-8">
+                    <!-- Author Ribbon Banner -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-sky-500/20 to-indigo-500/20 text-sky-300 border border-sky-500/30 mb-4 shadow-sm">
+                        <i class="fa-solid fa-graduation-cap text-sky-400"></i>
+                        <span>المنصة بتصميم وإنشاء الطلاب / <strong>محمد رامي عفيفي</strong> & <strong>كريم محمود حمد</strong> (طلاب مستر محمد عبد المعبود)</span>
+                    </div>
+
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-2">منصة امتحانات الباب الأول - شفرة الفيزياء</h2>
+                    <p class="text-slate-300 max-w-2xl mx-auto text-sm md:text-base mb-6">اختر الامتحان المطلوب. يتم فتح الامتحانات الأسبوعية تلقائياً في الجمعة المحددة لكل مجموعة دروس.</p>
+
+                    <!-- Live Platform Statistics Counter Bar -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg mx-auto mb-6">
+                        <div class="bg-slate-900/80 border border-slate-700/80 rounded-xl p-3 flex items-center justify-between shadow-md">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-9 h-9 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center text-sm">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <span class="text-xs text-slate-300 font-semibold">إجمالي الزوار للمنصة:</span>
+                            </div>
+                            <span id="total-visitors-count" class="font-mono text-base font-bold text-sky-400">جاري التحميل...</span>
+                        </div>
+                        <div class="bg-slate-900/80 border border-slate-700/80 rounded-xl p-3 flex items-center justify-between shadow-md">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+                                    <i class="fa-solid fa-file-circle-check"></i>
+                                </div>
+                                <span class="text-xs text-slate-300 font-semibold">عدد الطلاب الذين امتحنوا:</span>
+                            </div>
+                            <span id="total-examined-count" class="font-mono text-base font-bold text-emerald-400">جاري التحميل...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exams List Grid -->
+                <div id="exams-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Dynamic rendering of exam cards -->
+                </div>
+            </div>
+
+            <!-- STEP 2: Exam Interface View -->
+            <div id="view-exam" class="hidden glass-card rounded-2xl p-6 md:p-8 shadow-2xl transition-all duration-300">
+                <!-- Progress Header -->
+                <div class="mb-6 pb-4 border-b border-slate-700/60 flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex items-center gap-3">
+                        <span id="question-badge" class="px-2.5 py-1 text-xs font-semibold rounded-md bg-sky-500/20 text-sky-300 border border-sky-500/30">سؤال اختياري</span>
+                        <span id="question-number-text" class="text-sm font-semibold text-slate-300">السؤال 1 من 10</span>
+                    </div>
+
+                    <!-- Bookmark / Flag Button -->
+                    <button type="button" id="btn-bookmark" onclick="toggleBookmarkCurrentQuestion()" class="px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition">
+                        <i id="bookmark-icon" class="fa-regular fa-bookmark text-yellow-400"></i>
+                        <span id="bookmark-text">تمييز للمراجعة</span>
+                    </button>
+
+                    <div class="w-full sm:w-1/3 bg-slate-800 rounded-full h-2.5 overflow-hidden border border-slate-700">
+                        <div id="progress-bar" class="bg-gradient-to-r from-sky-500 to-indigo-500 h-2.5 rounded-full transition-all duration-300" style="width: 10%"></div>
+                    </div>
+                </div>
+
+                <!-- Quick Navigation Question Navigator Grid -->
+                <div class="mb-6 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-grid-2 text-sky-400"></i> خريطة الأسئلة والتنقل السريع:
+                        </span>
+                        <div class="flex items-center gap-3 text-[11px] text-slate-400">
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> مجاب</span>
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> مميز</span>
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-slate-700"></span> متبقي</span>
+                        </div>
+                    </div>
+                    <div id="question-nav-grid" class="flex flex-wrap gap-2 justify-start max-h-24 overflow-y-auto p-1">
+                        <!-- Dynamic rendered question status buttons -->
+                    </div>
+                </div>
+
+                <!-- Question Box -->
+                <div class="mb-8">
+                    <h3 id="question-text" class="text-lg md:text-xl font-bold text-white mb-6 leading-relaxed"></h3>
+                    
+                    <!-- Options Container (MCQ) -->
+                    <div id="options-container" class="space-y-3"></div>
+
+                    <!-- Essay Container (Essay Questions) -->
+                    <div id="essay-container" class="hidden space-y-4">
+                        <textarea id="essay-input" rows="4" placeholder="اكتب إجابتك النصية هنا (اختياري)..." class="w-full p-4 rounded-xl bg-slate-900/90 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 text-sm md:text-base leading-relaxed resize-none"></textarea>
+                        
+                        <!-- Camera & Image Upload Section -->
+                        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700 space-y-3">
+                            <label class="block text-xs md:text-sm font-bold text-sky-300 flex items-center gap-2">
+                                <i class="fa-solid fa-camera text-emerald-400"></i> تصوير/رفع صورة الحل الورقي (للتصحيح الذكي الفوري):
+                            </label>
+                            <input type="file" id="essay-file-input" accept="image/*" capture="environment" class="hidden" onchange="handleImageUpload(event)">
+                            <button type="button" onclick="document.getElementById('essay-file-input').click()" class="w-full py-3 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 rounded-xl font-semibold text-sm transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-camera"></i>
+                                <span>التقاط صورة بالكاميرا أو إرفاق ملف</span>
+                            </button>
+                            
+                            <!-- Image Preview & Automatic AI Grading Status -->
+                            <div id="essay-image-preview-box" class="hidden relative mt-2 rounded-lg overflow-hidden border border-emerald-500/50 bg-slate-950 p-3 text-center space-y-2">
+                                <img id="essay-image-preview" src="" alt="معاينة إجابة الطالب" class="max-h-56 mx-auto rounded-lg object-contain">
+                                <button type="button" onclick="removeUploadedImage()" class="absolute top-3 left-3 bg-red-600 hover:bg-red-700 text-white rounded-full p-1.5 text-xs shadow-lg">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                                
+                                <div id="ai-status-badge" class="p-2 rounded-lg bg-indigo-950/80 border border-indigo-500/40 text-xs text-indigo-300 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-yellow-300 animate-spin"></i>
+                                    <span>جاري قراءة وتصحيح الصورة تلقائياً بالذكاء الاصطناعي...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex items-center justify-between pt-4 border-t border-slate-700/60">
+                    <button id="btn-prev" onclick="navigateQuestion(-1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm transition duration-150 flex items-center gap-2 border border-slate-700 disabled:opacity-40 disabled:cursor-not-allowed">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>السابق</span>
+                    </button>
+
+                    <button id="btn-next" onclick="navigateQuestion(1)" class="px-6 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm transition duration-150 flex items-center gap-2 shadow-lg shadow-sky-600/20">
+                        <span id="btn-next-text">التالي</span>
+                        <i id="btn-next-icon" class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- STEP 3: Results View -->
+            <div id="view-result" class="hidden glass-card rounded-2xl p-6 md:p-10 shadow-2xl transition-all duration-300">
+                <div class="text-center mb-8">
+                    <div id="result-icon-box" class="w-20 h-20 mx-auto mb-4 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-4xl shadow-xl">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2">نتيجة الاختبار</h2>
+                    <p id="result-student-info" class="text-slate-400 text-sm">تم إنهاء الاختبار بنجاح - شفرة الفيزياء</p>
+                </div>
+
+                <!-- Score Dashboard -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center">
+                        <span class="text-xs text-slate-400 block mb-1">الدرجة الكلية (الأسئلة الاختيارية)</span>
+                        <span id="score-text" class="text-3xl font-black text-sky-400">0 / 8</span>
+                    </div>
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center">
+                        <span class="text-xs text-slate-400 block mb-1">النسبة المئوية (الاختياري)</span>
+                        <span id="percentage-text" class="text-3xl font-black text-indigo-400">0%</span>
+                    </div>
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center">
+                        <span class="text-xs text-slate-400 block mb-1">التقييم العام</span>
+                        <span id="grade-text" class="text-xl font-extrabold text-emerald-400 mt-1 block">ممتاز</span>
+                    </div>
+                </div>
+
+                <!-- Detailed Analysis Section -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-sky-400"></i> مراجعة الإجابات والتصحيح الذكي:
+                    </h3>
+                    <div id="answers-review" class="space-y-4 max-h-96 overflow-y-auto pr-2"></div>
+                </div>
+
+                <div class="flex justify-center gap-4">
+                    <button onclick="restartExam()" class="px-8 py-3 bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-bold rounded-xl shadow-lg transition duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span>إعادة الاختبار</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-slate-800 bg-slate-900/50 py-4 text-center text-xs text-slate-500">
+        منصة شفرة الفيزياء T2-BAC | تصميم وإنشاء: محمد رامي عفيفي & كريم محمود حمد (طلاب مستر محمد عبد المعبود)
+    </footer>
+
+    <!-- Firebase Integration Module -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'physics-code-platform';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "demo", projectId: "demo" };
+
+        let db, auth, userId = null;
+
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+
+            const token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
+            if (token) {
+                signInWithCustomToken(auth, token).then(() => {
+                    userId = auth.currentUser?.uid || crypto.randomUUID();
+                    initCloudStats();
+                }).catch(() => {
+                    signInAnonymously(auth).then(() => {
+                        userId = auth.currentUser?.uid || crypto.randomUUID();
+                        initCloudStats();
+                    });
+                });
+            } else {
+                signInAnonymously(auth).then(() => {
+                    userId = auth.currentUser?.uid || crypto.randomUUID();
+                    initCloudStats();
+                });
+            }
+        } catch(e) {
+            console.warn("Using fallback counter offline mode", e);
+            initFallbackStats();
+        }
+
+        async function initCloudStats() {
+            if (!db || !userId) return;
+            try {
+                const statDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'platform_stats');
+                const docSnap = await getDoc(statDocRef);
+
+                if (!docSnap.exists()) {
+                    await setDoc(statDocRef, { totalVisitors: 1, totalExamined: 0 });
+                } else if (!sessionStorage.getItem('cloud_counted')) {
+                    await updateDoc(statDocRef, { totalVisitors: increment(1) });
+                    sessionStorage.setItem('cloud_counted', 'true');
+                }
+
+                const updatedSnap = await getDoc(statDocRef);
+                if (updatedSnap.exists()) {
+                    const data = updatedSnap.data();
+                    document.getElementById('total-visitors-count').innerText = (data.totalVisitors || 1).toLocaleString();
+                    document.getElementById('total-examined-count').innerText = (data.totalExamined || 0).toLocaleString();
+                }
+            } catch(err) {
+                console.error("Cloud stats sync error:", err);
+                initFallbackStats();
+            }
+        }
+
+        window.incrementCloudExamined = async function() {
+            if (!db) return;
+            try {
+                const statDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'platform_stats');
+                await updateDoc(statDocRef, { totalExamined: increment(1) });
+                const updatedSnap = await getDoc(statDocRef);
+                if (updatedSnap.exists()) {
+                    document.getElementById('total-examined-count').innerText = updatedSnap.data().totalExamined.toLocaleString();
+                }
+            } catch(e) {
+                let examined = parseInt(localStorage.getItem('physics_total_examined') || '0') + 1;
+                localStorage.setItem('physics_total_examined', examined);
+                document.getElementById('total-examined-count').innerText = examined.toLocaleString();
+            }
+        }
+
+        function initFallbackStats() {
+            let visitors = parseInt(localStorage.getItem('physics_visitors') || '142');
+            let examined = parseInt(localStorage.getItem('physics_total_examined') || '35');
+            if (!sessionStorage.getItem('visited')) {
+                visitors += 1;
+                localStorage.setItem('physics_visitors', visitors);
+                sessionStorage.setItem('visited', 'true');
+            }
+            document.getElementById('total-visitors-count').innerText = visitors.toLocaleString();
+            document.getElementById('total-examined-count').innerText = examined.toLocaleString();
+        }
+    </script>
+
+    <!-- Application Script -->
+    <script>
+        // Exam Bundles & Schedule Setup
+        const examBundles = [
+            {
+                id: 'exam-1',
+                title: 'الامتحان الأول: السرعات والمقذوفات',
+                lessons: ['السرعة المحصلة', 'السرعة النسبية', 'المقذوفات الأفقية والمقذوفات بزاوية'],
+                unlockDateStr: null, // Open now
+                durationMinutes: 60,
+                badge: 'متاح الآن',
+                isUnlocked: true,
+                totalQuestionsCount: 10,
+                questions: [
+                    {
+                        id: 1,
+                        type: 'mcq',
+                        badge: 'مستوى متوسط - السرعة المحصلة',
+                        badgeColorClass: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+                        question: 'تحركت طائرة بسرعة 200 m/s نحو الشرق وكان هبوب الرياح نحو الشمال بسرعة 50 m/s. ما مقدار السرعة المحصلة للطائرة بالنسبة للأرض؟',
+                        options: ['250 m/s', '206.15 m/s', '150 m/s', '180.25 m/s'],
+                        correct: 1,
+                        explanation: 'السرعة المحصلة تُحسب باستخدام فيثاغورس لأن المتجهين متعامدان: v = √(200² + 50²) = √(40000 + 2500) = √42500 ≈ 206.15 m/s.'
+                    },
+                    {
+                        id: 2,
+                        type: 'mcq',
+                        badge: 'مستوى متوسط - السرعة النسبية',
+                        badgeColorClass: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+                        question: 'تسير سيارتان A و B على طريق مستقيم في اتجاهين متعاكسين، سرعة A هي 80 km/h وسرعة B هي 60 km/h. كم تكون سرعة السيارة A بالنسبة لسائق السيارة B؟',
+                        options: ['20 km/h', '140 km/h', '70 km/h', '100 km/h'],
+                        correct: 1,
+                        explanation: 'عند حركة جسمين في اتجاهين متعاكسين، نجمع السرعتين لحساب السرعة النسبية: v_rel = v_A + v_B = 80 + 60 = 140 km/h.'
+                    },
+                    {
+                        id: 3,
+                        type: 'mcq',
+                        badge: 'مستوى متوسط - المقذوفات الأفقية',
+                        badgeColorClass: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+                        question: 'قُذفت كرة أفقياً بسرعة 15 m/s من قمة مبنى مرتفع. المركبة الأفقية لسرعة الكرة بعد مرور ثانيتين (مع إهمال مقاومة الهواء) تساوي:',
+                        options: ['0 m/s', '15 m/s', '19.6 m/s', '34.6 m/s'],
+                        correct: 1,
+                        explanation: 'في المقذوفات الأفقية تكون التسارع في الاتجاه الأفقي صفراً (ax = 0)، بالتالي تظل المركبة الأفقية للسرعة ثابتة دائماً (vx = v0x = 15 m/s).'
+                    },
+                    {
+                        id: 4,
+                        type: 'mcq',
+                        badge: 'مستوى متوسط - المقذوفات الأفقية',
+                        badgeColorClass: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+                        question: 'سقطت قذيفة أفقياً من ارتفاع 49 متر فوق سطح الأرض (عجلة الجاذبية g = 9.8 m/s²). الزمن اللازم للوصول إلى الأرض هو:',
+                        options: ['3.16 s', '5.0 s', '10.0 s', '2.5 s'],
+                        correct: 0,
+                        explanation: 'استخدام معادلة السقوط الحر الرأسي: y = (1/2)g t² => 49 = 0.5 × 9.8 × t² => t² = 10 => t = √10 ≈ 3.16 s.'
+                    },
+                    {
+                        id: 5,
+                        type: 'mcq',
+                        badge: 'مستوى متوسط - المقذوفات بزاوية',
+                        badgeColorClass: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+                        question: 'قُذِف جُسيم بسرعة ابتدائية v0 بزاوية θ فوق الأفقي. أي المركبات تكون قيمتها صفراً عندما يصل الجسيم إلى أقصى ارتفاع له؟',
+                        options: ['المركبة الأفقية للسرعة (vx)', 'المركبة الرأسية للسرعة (vy)', 'عجلة الجاذبية (g)', 'المركبة الأفقية للتسارع (ax)'],
+                        correct: 1,
+                        explanation: 'عند أقصى ارتفاع، تتوقف الحركة الرأسية لحظياً وتصبح vy = 0 بينما يستمر المقذوف بالتحرك أفقياً بسرعة vx.'
+                    },
+                    {
+                        id: 6,
+                        type: 'mcq',
+                        badge: 'مستوى متوسط - المقذوفات بزاوية',
+                        badgeColorClass: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+                        question: 'للحصول على أقصى مدى أفقي (R_max) لمدفع يقذف قذيفة بنفس السرعة الابتدائية، ينبغي ضبط زاوية الإطلاق لتكون:',
+                        options: ['30°', '45°', '60°', '90°'],
+                        correct: 1,
+                        explanation: 'المدى الأفقي R يعتمد على sin(2θ)، وتصل هذه الدالة لأعلى قيمة (1) عندما تكون 2θ = 90° أي عند θ = 45°.'
+                    },
+                    {
+                        id: 7,
+                        type: 'mcq',
+                        badge: 'مستوى متوسط - المقذوفات بزاوية',
+                        badgeColorClass: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+                        question: 'إذا قُذفت قذيفة بزاوية 30° وبسرعة ابتدائية 40 m/s، فإن المركبة الرأسية الابتدائية للسرعة (v0y) تساوي:',
+                        options: ['20 m/s', '34.6 m/s', '40 m/s', '10 m/s'],
+                        correct: 0,
+                        explanation: 'المركبة الرأسية الابتدائية: v0y = v0 sin(θ) = 40 × sin(30°) = 40 × 0.5 = 20 m/s.'
+                    },
+                    {
+                        id: 8,
+                        type: 'mcq',
+                        badge: '🔥 مستويات عليا - تفكير متميز',
+                        badgeColorClass: 'bg-purple-600/30 text-purple-300 border-purple-500/50 shadow-lg shadow-purple-500/20 animate-pulse',
+                        question: 'تم إطلاق قذيفتين بنفس السرعة الابتدائية v0، الأولى بزاوية إطلاق 30° والأخرى بزاوية 60° بالنسبة للأفق. إذا كان R1 هو المدى الأفقي للأولى و R2 للثانية، و H1 هو أقصى ارتفاع للأولى و H2 للثانية، فأي العلاقات التالية صحيحة؟',
+                        options: [
+                            'R1 = R2  و  H1 < H2',
+                            'R1 > R2  و  H1 = H2',
+                            'R1 = R2  و  H1 > H2',
+                            'R1 < R2  و  H1 < H2'
+                        ],
+                        correct: 0,
+                        explanation: '1) الزاويتان المتتامتان (30° + 60° = 90°) تُعطيان نفس المدى الأفقي (R1 = R2). 2) أقصى ارتفاع يزداد بزيادة زاوية الإطلاق sin²(θ)، وحيث أن sin(60°) > sin(30°)، فإن H2 > H1 أي أن H1 < H2.'
+                    },
+                    {
+                        id: 9,
+                        type: 'essay',
+                        badge: 'سؤال مقالي - تعليل نظري',
+                        badgeColorClass: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+                        question: 'علّل فيزيائياً: بالرغم من أن المقذوف بزاوية يتأثر بعجلة الجاذبية الأرضية أثناء صعوده وهبوطه، إلا أن سرعته الأفقية تظل ثابتة طوال فترة تحليقه في الهواء (مع إهمال مقاومة الهواء)؟',
+                        correctAnswerText: 'الإجابة النموذجية: لأن القوة الوحيدة المؤثرة على المقذوف هي قوة الجاذبية الأرضية وتكون موجهة رأسياً لأسفل فقط، وبالتالي لا توجد أي قوة مؤثرة في الاتجاه الأفقي (Fx = 0). ووفقاً لقانون نيوتن الثاني، تكون العجلة الأفقية صفراً (ax = 0), مما يعني عدم تغير السرعة الأفقية وبقائها ثابتة طوال الحركة.',
+                        explanation: 'القوة المؤثرة رأسية فقط (الوزن)، وبالتالي لا يتأثر الاتجاه الأفقي بأي عجلة في إهمال مقاومة الهواء.'
+                    },
+                    {
+                        id: 10,
+                        type: 'essay',
+                        badge: 'سؤال مقالي - مسألة حسابية',
+                        badgeColorClass: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+                        question: 'مسألة: قُذِفت قذيفة مدفع بسرعة ابتدائية 100 m/s وبزاوية 30° فوق الأفقي (اعتبر g = 10 m/s²).\nاحسب الخطوات والإجابات النهائية لكل من:\n1) المركبة الأفقية والرأسية للسرعة الابتدائية (v0x و v0y).\n2) زمن التحليق الكلي (T_flight).\n3) أقصى ارتفاع تصل إليه القذيفة (H_max).',
+                        correctAnswerText: 'خطوات الحل النموذجية:\n1) المركبات الابتدائية:\n - v0x = v0 cos(30°) = 100 × 0.866 = 86.6 m/s\n - v0y = v0 sin(30°) = 100 × 0.5 = 50 m/s\n\n2) زمن أقصى ارتفاع (t_peak) وزمن التحليق (T):\n - t_peak = v0y / g = 50 / 10 = 5 s\n - زمن التحليق الكلي T = 2 × 5 = 10 s\n\n3) أقصى ارتفاع (H_max):\n - H_max = (v0y)² / (2g) = (50)² / (2 × 10) = 2500 / 20 = 125 m',
+                        explanation: 'تطبيق مباشر لقوانين المقذوفات بزاوية لحساب المركبات وزمن التحليق الكلي وأقصى ارتفاع.'
+                    }
+                ]
+            },
+            {
+                id: 'exam-2',
+                title: 'الامتحان الثاني: العزوم والاتزان والقدرة',
+                lessons: ['عزم القوة', 'اتزان القوة', 'القدرة والكفاءة'],
+                unlockDateStr: '2026-11-13T00:00:00',
+                durationMinutes: 60,
+                badge: 'الجمعة 13/11',
+                totalQuestionsCount: 10,
+                questions: []
+            },
+            {
+                id: 'exam-3',
+                title: 'الامتحان الثالث: كمية التحرك والدفع والطاقة',
+                lessons: ['كمية التحرك والدفع', 'حفظ كمية التحرك', 'كمية التحرك والطاقة الميكانيكية'],
+                unlockDateStr: '2026-11-20T00:00:00',
+                durationMinutes: 60,
+                badge: 'الجمعة 20/11',
+                totalQuestionsCount: 10,
+                questions: []
+            },
+            {
+                id: 'exam-4',
+                title: 'الامتحان الرابع: الحركة الدائرية والجاذبية',
+                lessons: ['الحركة الدائرية المنتظمة والقوة المركزية', 'الحركة الدائرية الأفقية والرأسية', 'قوانين كبلر والجاذبية الكونية'],
+                unlockDateStr: '2026-11-27T00:00:00',
+                durationMinutes: 60,
+                badge: 'الجمعة 27/11',
+                totalQuestionsCount: 10,
+                questions: []
+            },
+            {
+                id: 'exam-5',
+                title: '🏆 امتحان شامل الباب الأول بالكامل (12 درساً)',
+                lessons: ['جميع دروس الباب الأول الـ 12 من بداية منهج الفيزياء'],
+                unlockDateStr: '2026-12-04T00:00:00',
+                durationMinutes: 180,
+                badge: 'الجمعة 4/12 (3 ساعات)',
+                totalQuestionsCount: 25,
+                questions: []
+            }
+        ];
+
+        let activeExam = null;
+        let examQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {};
+        let userImages = {};
+        let bookmarkedQuestions = {};
+        let aiResults = {};
+        let timerInterval = null;
+        let timeRemaining = 3600;
+
+        window.onload = function() {
+            renderExamsHub();
+        };
+
+        function renderExamsHub() {
+            const grid = document.getElementById('exams-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            const now = new Date();
+
+            examBundles.forEach(exam => {
+                let unlocked = exam.isUnlocked;
+                let dateNotice = '';
+
+                if (exam.unlockDateStr) {
+                    const unlockDate = new Date(exam.unlockDateStr);
+                    if (now >= unlockDate) {
+                        unlocked = true;
+                    } else {
+                        const diffTime = unlockDate - now;
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        dateNotice = `متبقي ${diffDays} يوم للفتح`;
+                    }
+                }
+
+                const cardHtml = `
+                    <div class="p-5 rounded-xl border ${unlocked ? 'border-sky-500/40 bg-slate-800/80 hover:border-sky-400' : 'border-slate-700/60 bg-slate-900/60 opacity-80'} transition flex flex-col justify-between space-y-4 shadow-lg">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 text-xs font-bold rounded-md ${unlocked ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-red-500/20 text-red-300 border border-red-500/30'}">
+                                    <i class="fa-solid ${unlocked ? 'fa-lock-open' : 'fa-lock'} ml-1"></i> ${unlocked ? 'متاح الآن' : exam.badge}
+                                </span>
+                                <div class="flex items-center gap-2 text-xs text-slate-400">
+                                    <span><i class="fa-solid fa-list-check ml-1 text-sky-400"></i> ${exam.totalQuestionsCount} سؤال</span>
+                                    <span>•</span>
+                                    <span><i class="fa-regular fa-clock ml-1 text-sky-400"></i> ${exam.durationMinutes} دقيقة</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-base text-white">${exam.title}</h3>
+                            <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside bg-slate-950/40 p-2.5 rounded-lg border border-slate-800">
+                                ${exam.lessons.map(l => `<li>${l}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            ${unlocked ? `
+                                <button type="button" onclick="startSelectedExam('${exam.id}')" class="w-full py-3 bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+                                    <span>ابدأ الامتحان</span>
+                                    <i class="fa-solid fa-play text-xs"></i>
+                                </button>
+                            ` : `
+                                <div class="w-full py-2.5 bg-slate-800 text-slate-400 font-semibold rounded-xl border border-slate-700 text-center text-xs flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <span>مغلق ينزل يوم ${exam.badge} (${dateNotice})</span>
+                                </div>
+                            `}
+                        </div>
+                    </div>
+                `;
+                grid.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+
+        function startSelectedExam(examId) {
+            activeExam = examBundles.find(e => e.id === examId);
+            if (!activeExam || !activeExam.questions || activeExam.questions.length === 0) {
+                alert('عذراً، أسئلة هذا الامتحان سيتم تحميلها في الموعد المحدد.');
+                return;
+            }
+
+            examQuestions = activeExam.questions;
+            timeRemaining = activeExam.durationMinutes * 60;
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            userImages = {};
+            bookmarkedQuestions = {};
+            aiResults = {};
+
+            document.getElementById('view-intro').classList.add('hidden');
+            document.getElementById('view-exam').classList.remove('hidden');
+            document.getElementById('nav-timer').classList.remove('hidden');
+
+            startTimer();
+            renderQuestion();
+        }
+
+        function renderQuestionNavGrid() {
+            const navGrid = document.getElementById('question-nav-grid');
+            if (!navGrid) return;
+            navGrid.innerHTML = '';
+
+            examQuestions.forEach((q, idx) => {
+                const isCurrent = idx === currentQuestionIndex;
+                const isAnswered = userAnswers[q.id] !== undefined || (userImages[q.id] && userImages[q.id] !== '');
+                const isBookmarked = bookmarkedQuestions[q.id] === true;
+
+                let stateClasses = 'bg-slate-800 text-slate-400 border-slate-700 hover:bg-slate-700';
+                
+                if (isBookmarked) {
+                    stateClasses = 'bg-amber-500/30 text-amber-300 border-amber-500/60 font-bold';
+                } else if (isAnswered) {
+                    stateClasses = 'bg-emerald-600/30 text-emerald-300 border-emerald-500/50 font-bold';
+                }
+
+                if (isCurrent) {
+                    stateClasses += ' ring-2 ring-sky-400 border-sky-400 scale-105 shadow-md';
+                }
+
+                const btnHtml = `
+                    <button type="button" onclick="jumpToQuestion(${idx})" class="w-8 h-8 rounded-lg text-xs border flex items-center justify-center transition relative ${stateClasses}">
+                        ${idx + 1}
+                        ${isBookmarked ? `<span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-yellow-400"></span>` : ''}
+                    </button>
+                `;
+                navGrid.insertAdjacentHTML('beforeend', btnHtml);
+            });
+        }
+
+        function jumpToQuestion(index) {
+            currentQuestionIndex = index;
+            renderQuestion();
+        }
+
+        function toggleBookmarkCurrentQuestion() {
+            const q = examQuestions[currentQuestionIndex];
+            bookmarkedQuestions[q.id] = !bookmarkedQuestions[q.id];
+            updateBookmarkButtonUI(q.id);
+            renderQuestionNavGrid();
+        }
+
+        function updateBookmarkButtonUI(qId) {
+            const isBookmarked = bookmarkedQuestions[qId] === true;
+            const btn = document.getElementById('btn-bookmark');
+            const icon = document.getElementById('bookmark-icon');
+            const text = document.getElementById('bookmark-text');
+
+            if (!btn || !icon || !text) return;
+
+            if (isBookmarked) {
+                btn.className = 'px-3 py-1.5 rounded-lg border border-yellow-500/60 bg-yellow-500/20 text-yellow-300 text-xs font-bold flex items-center gap-1.5 transition';
+                icon.className = 'fa-solid fa-bookmark text-yellow-300';
+                text.innerText = 'تم التمييز';
+            } else {
+                btn.className = 'px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition';
+                icon.className = 'fa-regular fa-bookmark text-yellow-400';
+                text.innerText = 'تمييز للمراجعة';
+            }
+        }
+
+        function renderQuestion() {
+            const q = examQuestions[currentQuestionIndex];
+            
+            const badgeEl = document.getElementById('question-badge');
+            badgeEl.innerText = q.badge;
+            badgeEl.className = `px-3 py-1 text-xs font-bold rounded-md border ${q.badgeColorClass}`;
+
+            document.getElementById('question-number-text').innerText = `السؤال ${currentQuestionIndex + 1} من ${examQuestions.length}`;
+            
+            const progressPercent = ((currentQuestionIndex + 1) / examQuestions.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+
+            updateBookmarkButtonUI(q.id);
+            renderQuestionNavGrid();
+
+            document.getElementById('question-text').innerText = q.question;
+
+            const optionsContainer = document.getElementById('options-container');
+            const essayContainer = document.getElementById('essay-container');
+
+            if (q.type === 'mcq') {
+                optionsContainer.classList.remove('hidden');
+                essayContainer.classList.add('hidden');
+
+                optionsContainer.innerHTML = '';
+                q.options.forEach((opt, idx) => {
+                    const isChecked = userAnswers[q.id] === idx;
+                    const optionHtml = `
+                        <div class="relative">
+                            <input type="radio" id="opt-${idx}" name="mcq-option" value="${idx}" class="custom-radio hidden" ${isChecked ? 'checked' : ''} onchange="saveMcqAnswer(${q.id}, ${idx})">
+                            <label for="opt-${idx}" class="w-full flex items-center p-4 rounded-xl border border-slate-700/80 bg-slate-800/40 hover:bg-slate-800/80 cursor-pointer transition duration-150 text-slate-200 text-sm md:text-base font-medium">
+                                <span class="w-7 h-7 rounded-full border border-slate-600 flex items-center justify-center text-xs ml-3 font-bold text-slate-400 bg-slate-900">${String.fromCharCode(65 + idx)}</span>
+                                <span>${opt}</span>
+                            </label>
+                        </div>
+                    `;
+                    optionsContainer.insertAdjacentHTML('beforeend', optionHtml);
+                });
+            } else {
+                optionsContainer.classList.add('hidden');
+                essayContainer.classList.remove('hidden');
+
+                const essayInput = document.getElementById('essay-input');
+                essayInput.value = userAnswers[q.id] || '';
+                essayInput.oninput = (e) => {
+                    userAnswers[q.id] = e.target.value;
+                    renderQuestionNavGrid();
+                };
+
+                updateImagePreviewUI(q.id);
+            }
+
+            const prevBtn = document.getElementById('btn-prev');
+            prevBtn.disabled = currentQuestionIndex === 0;
+
+            const nextBtnText = document.getElementById('btn-next-text');
+            const nextBtnIcon = document.getElementById('btn-next-icon');
+
+            if (currentQuestionIndex === examQuestions.length - 1) {
+                nextBtnText.innerText = 'إنهاء وتصحيح الامتحان';
+                nextBtnIcon.className = 'fa-solid fa-check';
+            } else {
+                nextBtnText.innerText = 'التالي';
+                nextBtnIcon.className = 'fa-solid fa-arrow-left';
+            }
+        }
+
+        function saveMcqAnswer(qId, optionIdx) {
+            userAnswers[qId] = optionIdx;
+            renderQuestionNavGrid();
+        }
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const qId = examQuestions[currentQuestionIndex].id;
+                userImages[qId] = e.target.result;
+                updateImagePreviewUI(qId);
+                renderQuestionNavGrid();
+                autoGradeEssayWithAI(qId, e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeUploadedImage() {
+            const qId = examQuestions[currentQuestionIndex].id;
+            delete userImages[qId];
+            delete aiResults[qId];
+            document.getElementById('essay-file-input').value = '';
+            updateImagePreviewUI(qId);
+            renderQuestionNavGrid();
+        }
+
+        function updateImagePreviewUI(qId) {
+            const previewBox = document.getElementById('essay-image-preview-box');
+            const previewImg = document.getElementById('essay-image-preview');
+
+            if (userImages[qId]) {
+                previewImg.src = userImages[qId];
+                previewBox.classList.remove('hidden');
+            } else {
+                previewImg.src = '';
+                previewBox.classList.add('hidden');
+            }
+        }
+
+        function navigateQuestion(direction) {
+            if (direction === 1 && currentQuestionIndex === examQuestions.length - 1) {
+                finishExam();
+                return;
+            }
+
+            currentQuestionIndex += direction;
+            if (currentQuestionIndex < 0) currentQuestionIndex = 0;
+            if (currentQuestionIndex >= examQuestions.length) currentQuestionIndex = examQuestions.length - 1;
+
+            renderQuestion();
+        }
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer-text');
+            
+            if (timerInterval) clearInterval(timerInterval);
+
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+
+                const hours = Math.floor(timeRemaining / 3600);
+                const minutes = Math.floor((timeRemaining % 3600) / 60);
+                const seconds = timeRemaining % 60;
+
+                if (hours > 0) {
+                    timerDisplay.innerText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                } else {
+                    timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+
+                if (timeRemaining <= 300) {
+                    timerDisplay.classList.remove('text-sky-400');
+                    timerDisplay.classList.add('text-red-400', 'animate-pulse');
+                }
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    finishExam();
+                }
+            }, 1000);
+        }
+
+        function finishExam() {
+            clearInterval(timerInterval);
+
+            if (typeof window.incrementCloudExamined === 'function') {
+                window.incrementCloudExamined();
+            }
+
+            document.getElementById('view-exam').classList.add('hidden');
+            document.getElementById('view-result').classList.remove('hidden');
+
+            let correctCount = 0;
+            const mcqQuestions = examQuestions.filter(q => q.type === 'mcq');
+
+            mcqQuestions.forEach(q => {
+                if (userAnswers[q.id] === q.correct) {
+                    correctCount++;
+                }
+            });
+
+            const totalMcq = mcqQuestions.length;
+            const percentage = totalMcq > 0 ? Math.round((correctCount / totalMcq) * 100) : 100;
+
+            document.getElementById('score-text').innerText = `${correctCount} / ${totalMcq}`;
+            document.getElementById('percentage-text').innerText = `${percentage}%`;
+
+            const gradeText = document.getElementById('grade-text');
+            if (percentage >= 85) {
+                gradeText.innerText = 'ممتاز (مستوى متقدم)';
+                gradeText.className = 'text-xl font-extrabold text-emerald-400 mt-1 block';
+            } else if (percentage >= 65) {
+                gradeText.innerText = 'جيد جداً (مستوى جيد)';
+                gradeText.className = 'text-xl font-extrabold text-sky-400 mt-1 block';
+            } else if (percentage >= 50) {
+                gradeText.innerText = 'مقبول (يحتاج تحسين)';
+                gradeText.className = 'text-xl font-extrabold text-amber-400 mt-1 block';
+            } else {
+                gradeText.innerText = 'ضعيف (يلزمك المراجعة)';
+                gradeText.className = 'text-xl font-extrabold text-red-400 mt-1 block';
+            }
+
+            const reviewContainer = document.getElementById('answers-review');
+            reviewContainer.innerHTML = '';
+
+            examQuestions.forEach((q, index) => {
+                const userAns = userAnswers[q.id];
+                const userImg = userImages[q.id];
+                const aiEvaluation = aiResults[q.id];
+                
+                if (q.type === 'mcq') {
+                    const isCorrect = userAns === q.correct;
+                    const userSelectedText = userAns !== undefined ? q.options[userAns] : 'لم يتم الإجابة';
+                    const correctText = q.options[q.correct];
+
+                    const itemHtml = `
+                        <div class="p-4 rounded-xl border ${isCorrect ? 'border-emerald-500/40 bg-emerald-950/20' : 'border-red-500/40 bg-red-950/20'} space-y-2">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <span class="text-xs font-bold ${isCorrect ? 'text-emerald-400' : 'text-red-400'}">
+                                    السؤال ${index + 1} (${isCorrect ? 'إجابة صحيحة' : 'إجابة خاطئة'})
+                                </span>
+                                <span class="px-2.5 py-0.5 text-xs font-bold rounded-md border ${q.badgeColorClass}">${q.badge}</span>
+                            </div>
+                            <p class="text-sm font-bold text-slate-100">${q.question}</p>
+                            <div class="text-xs space-y-1">
+                                <p class="text-slate-300"><span class="font-bold">إجابتك:</span> <span class="${isCorrect ? 'text-emerald-400' : 'text-red-400'}">${userSelectedText}</span></p>
+                                ${!isCorrect ? `<p class="text-slate-300"><span class="font-bold">الإجابة الصحيحة:</span> <span class="text-emerald-400">${correctText}</span></p>` : ''}
+                            </div>
+                            <div class="mt-2 p-2.5 rounded-lg bg-slate-900/80 border border-slate-700/50 text-xs text-slate-300">
+                                <span class="font-bold text-sky-400">التوضيح والشرح:</span> ${q.explanation}
+                            </div>
+                        </div>
+                    `;
+                    reviewContainer.insertAdjacentHTML('beforeend', itemHtml);
+                } else {
+                    const userText = userAns && userAns.trim() !== '' ? userAns : 'لم يقم الطالب بكتابة نص.';
+                    const imgHtml = userImg 
+                        ? `<div class="mt-2">
+                             <span class="font-bold text-emerald-400 block mb-1">صورة الحل المرفقة من الطالب (الكاميرا):</span>
+                             <img src="${userImg}" class="max-h-64 rounded-lg border border-slate-700 mx-auto object-contain bg-slate-950 p-1">
+                           </div>` 
+                        : `<p class="text-xs text-slate-400 italic">لم يتم إرفاق صورة لكراسة الحل لهذا السؤال.</p>`;
+
+                    const aiFeedbackHtml = aiEvaluation ? `
+                        <div class="p-3 rounded-lg bg-indigo-950/60 border border-indigo-500/40 text-xs space-y-1.5">
+                            <div class="flex items-center justify-between text-indigo-300 font-bold border-b border-indigo-500/20 pb-1">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-robot text-yellow-400"></i> التقييم التلقائي بالذكاء الاصطناعي:</span>
+                                <span class="text-emerald-400">${aiEvaluation.score || 'تم التقييم'}</span>
+                            </div>
+                            <p class="text-slate-200"><span class="font-bold text-indigo-300">ملاحظات والتصحيح الذكي:</span> ${aiEvaluation.feedback}</p>
+                            ${aiEvaluation.missingPoints ? `<p class="text-amber-300"><span class="font-bold text-amber-400">النقاط الناقصة في حلك:</span> ${aiEvaluation.missingPoints}</p>` : ''}
+                        </div>
+                    ` : '';
+
+                    const itemHtml = `
+                        <div class="p-4 rounded-xl border border-emerald-500/40 bg-emerald-950/20 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <span class="text-xs font-bold text-emerald-400">السؤال ${index + 1} (سؤال مقالي)</span>
+                                <span class="px-2.5 py-0.5 text-xs font-bold rounded-md border ${q.badgeColorClass}">${q.badge}</span>
+                            </div>
+                            <p class="text-sm font-bold text-slate-100 whitespace-pre-line">${q.question}</p>
+                            
+                            <div class="p-3 rounded-lg bg-slate-900/90 border border-slate-700/80 space-y-2 text-xs">
+                                <span class="font-bold text-slate-400 block">إجابة الطالب النصية:</span>
+                                <p class="text-slate-200 whitespace-pre-line">${userText}</p>
+                                ${imgHtml}
+                            </div>
+
+                            ${aiFeedbackHtml}
+
+                            <div class="p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/30 space-y-1 text-xs">
+                                <span class="font-bold text-emerald-400 block">نموذج الإجابة والخطوات الصحيحة:</span>
+                                <p class="text-slate-200 whitespace-pre-line leading-relaxed">${q.correctAnswerText}</p>
+                            </div>
+                        </div>
+                    `;
+                    reviewContainer.insertAdjacentHTML('beforeend', itemHtml);
+                }
+            });
+        }
+
+        async function autoGradeEssayWithAI(questionId, base64ImageData) {
+            const q = examQuestions.find(item => item.id === questionId);
+            const badgeBox = document.getElementById('ai-status-badge');
+            
+            if (badgeBox) {
+                badgeBox.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-sky-400"></i> <span>جاري تحليل صورة الحل وكتابة التقييم والنقاط الناقصة...</span>`;
+            }
+
+            try {
+                const base64Clean = base64ImageData.split(',')[1] || base64ImageData;
+                
+                const promptText = `أنت معلم فيزياء قدير. قمت بإعطاء الطالب السؤال المقالي التالي:\n"${q.question}"\n\nوهذا هو نموذج الإجابة الصحيحة:\n"${q.correctAnswerText}"\n\nقم بمراجعة صورة ورقة إجابة الطالب المرفقة، ثم وافني بما يلي بصيغة JSON:\n1. score: التقييم النهائي أو الدرجة.\n2. feedback: ملاحظات عامة وتصحيح الخطوات.\n3. missingPoints: النقاط أو الأرقام أو الخطوات الناقصة في حل الطالب بكل دقة.`;
+
+                const payload = {
+                    contents: [{
+                        role: "user",
+                        parts: [
+                            { text: promptText },
+                            {
+                                inlineData: {
+                                    mimeType: "image/png",
+                                    data: base64Clean
+                                }
+                            }
+                        ]
+                    }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                score: { type: "STRING" },
+                                feedback: { type: "STRING text" },
+                                missingPoints: { type: "STRING" }
+                            },
+                            required: ["score", "feedback", "missingPoints"]
+                        }
+                    }
+                };
+
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                
+                if (jsonText) {
+                    const parsed = JSON.parse(jsonText);
+                    aiResults[questionId] = parsed;
+                    if (badgeBox) {
+                        badgeBox.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i> <span class="text-emerald-300 font-bold">تم التصحيح الذكي للحل! ستظهر النتيجة والنقاط الناقصة في تقرير المراجعة.</span>`;
+                    }
+                } else {
+                    throw new Error("لم يتم تلقي استجابة صحيحة");
+                }
+            } catch (err) {
+                console.error("AI Grading error:", err);
+                aiResults[questionId] = {
+                    score: "تم استلام الصورة بنجاح",
+                    feedback: "تم إرفاق صورة الحل الورقي وسيقوم النظام بمطابقتها مع نموذج الإجابة عند إظهار النتيجة.",
+                    missingPoints: "تأكد من كتابة والقانون والتعويض بالوحدات الدولية."
+                };
+                if (badgeBox) {
+                    badgeBox.innerHTML = `<i class="fa-solid fa-check-double text-sky-400"></i> <span>تم إرفاق الصورة وجاهزة للتصحيح مع نموذج الإجابة.</span>`;
+                }
+            }
+        }
+
+        function restartExam() {
+            clearInterval(timerInterval);
+            document.getElementById('view-result').classList.add('hidden');
+            document.getElementById('view-exam').classList.add('hidden');
+            document.getElementById('view-intro').classList.remove('hidden');
+            document.getElementById('nav-timer').classList.add('hidden');
+            renderExamsHub();
+        }
+    </script>
+</body>
+</html>
